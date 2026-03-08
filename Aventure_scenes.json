@@ -19,13 +19,18 @@
       }
 },
   "scene_creature_1" : {
-    "description": "Une créature surgit d'un conduit !",
+    "description": "Tu avances lentement et précautionneusement dans le couloir obscur, le faisceau de ta lampe torche déchirant les ombres. Tu arrives à un embranchement et là, soudain, une créature te saute dessus et tente de déchirer ta combinaison !",
     "test": "combat",
 
     "resultats": {
         "reussite": "Tu parviens à tuer cette créature avec ton cutter à plasma. A tes pieds se trouve le corps de la créature et un corps, sans doute sa victime. Le corps en combinaison agrippe toujours un fusil énergétique que tu récupères.",
         "partielle":"Tu lui enfonces dans le flanc la lame-plasma de ton cutter, et elle s'enfuit dans le noir.",
         "echec": "La créature déchire ta combinaison et ton abdomen avant de disparaître à nouveau. Tu es blessé et perd de l'oxygène."
+    },
+
+    "conso":{
+      "partielle": 4,
+      "echec": 10
     },
 
     "loot": {
@@ -52,11 +57,11 @@
     "description": "Flottant au sol git le corps avec une terrible blessure au ventre. ",
     "choix": {
         "1":{
-            "texte":"Etudies-tu cette blessure ?", 
+            "texte":"Etudies-tu cette blessure ? (test de Futé)", 
             "suivant":"scene_analyse_corps_1"
     },
         "2":{
-            "texte": "ou préfères-tu tenter de poursuivre la créature ?",
+            "texte": "ou préfères-tu tenter de poursuivre la créature ? (test de Coriace)",
             "suivant": "scene_poursuite_1"
         }      
     },
@@ -65,13 +70,18 @@
   },
 
     "scene_analyse_corps_1":{
-      "description": "blabla.",
+      "description": "La déchirure de la combinaison et l'apparence de la plaie laissent penser que la créature a jailli de l'intérieur du ventre de cette pauvre personne...",
       "test": "fute",
       "suivant": "fin"
     },
 
   "scene_poursuite_1": {
     "description": "blabla ",
+    "test": "combat",
+    "conso":{
+      "partielle": 4,
+      "echec": 10
+    },
     "suivant": "fin"
   },
 
