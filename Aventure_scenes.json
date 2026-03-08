@@ -1,0 +1,81 @@
+{
+  "debut": {
+    "description": "\nTu viens de quitter le havre de votre vaisseau de récupération et tu es désormais devant l'un des sas de l'épave qui dérive dans le vide spatial.\n ",
+    "suivant": "scene_couloir_1"
+  },
+
+  "scene_couloir_1" : {
+    "description": "Tu es dans le couloir sombre attenant au sas. Sur ta droite, il te semble percevoir un mouvement dans l'obscurité, plus loin dans le couloir. A gauche, une porte fermée donne sur le couloir, qui continue plus loin dans l'obscurité.",
+    "choix":{
+        "1":{
+            "texte":"Aller à droite pour découvrir ce qu'était le mouvement.", 
+            "suivant":"scene_creature_1"
+    },
+        "2":{
+            "texte": "Tenter d'ouvrir la porte de gauche",
+            "suivant": "scene_porte_1"
+
+        }
+      }
+},
+  "scene_creature_1" : {
+    "description": "Une créature surgit d'un conduit !",
+    "test": "combat",
+
+    "resultats": {
+        "reussite": "Tu parviens à tuer cette créature avec ton cutter à plasma. A tes pieds se trouve le corps de la créature et un corps, sans doute sa victime. Le corps en combinaison agrippe toujours un fusil énergétique que tu récupères.",
+        "partielle":"Tu lui enfonces dans le flanc la lame-plasma de ton cutter, et elle s'enfuit dans le noir.",
+        "echec": "La créature déchire ta combinaison et ton abdomen avant de disparaître à nouveau. Tu es blessé et perd de l'oxygène."
+    },
+
+    "loot": {
+      "reussite": "fusil_energetique"
+    },
+
+    "suivant": "scene_corps_sol_1"
+  },
+
+  "scene_porte_1": {
+    "description": "Le mécanisme de la porte de sécurité est bloqué en position fermée. Tu démontes le panneau de la commande et tentes de réactiver son fonctionnement.",
+    "test": "fute",
+
+    "resultats": {
+        "reussite": "Tu parviens à ouvrir la porte mécanique. De l'autre côté, tu découvres une soute remplie de rubémeraudes !",
+        "partielle": "Le corps d'un officier de pont flotte dans la pièce de l'autre côté. En fouillant sa combinaison, tu récupères sa montre en platine céleste.",
+        "echec": "Tu déclenches un court-circuit et tu te brûles ! Quant à la porte, elle est définitivement bloquée..."
+    },
+
+    "suivant": "fin"
+  },
+
+  "scene_corps_sol_1": {
+    "description": "Flottant au sol git le corps avec une terrible blessure au ventre. ",
+    "choix": {
+        "1":{
+            "texte":"Etudies-tu cette blessure ?", 
+            "suivant":"scene_analyse_corps_1"
+    },
+        "2":{
+            "texte": "ou préfères-tu tenter de poursuivre la créature ?",
+            "suivant": "scene_poursuite_1"
+        }      
+    },
+
+    "suivant": "fin"
+  },
+
+    "scene_analyse_corps_1":{
+      "description": "blabla.",
+      "test": "fute",
+      "suivant": "fin"
+    },
+
+  "scene_poursuite_1": {
+    "description": "blabla ",
+    "suivant": "fin"
+  },
+
+  "fin": {
+    "description": "Tu quittes l'épave avec ton éventuel butin, et ta précieuse vie."
+  }
+}
