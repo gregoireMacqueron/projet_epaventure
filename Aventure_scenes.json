@@ -28,13 +28,10 @@
         "echec": "La créature déchire ta combinaison et ton abdomen avant de disparaître à nouveau. Tu es blessé et perd de l'oxygène."
     },
 
-    "conso":{
-      "partielle": 4,
-      "echec": 10
-    },
-
-    "loot": {
-      "reussite": "fusil_energetique"
+    "effets":{
+      "reussite": {"loot":"fusil_energetique"},
+      "partielle": {"air": 4},
+      "echec": {"air": 10}
     },
 
     "suivant": "scene_corps_sol_1"
@@ -48,6 +45,10 @@
         "reussite": "Tu parviens à ouvrir la porte mécanique. De l'autre côté, tu découvres une soute remplie de rubémeraudes !",
         "partielle": "Le corps d'un officier de pont flotte dans la pièce de l'autre côté. En fouillant sa combinaison, tu récupères sa montre en platine céleste.",
         "echec": "Tu déclenches un court-circuit et tu te brûles ! Quant à la porte, elle est définitivement bloquée..."
+    },
+    "effets":{
+      "partielle": {"air": 2},
+      "echec": {"air": 5}
     },
 
     "suivant": "fin"
@@ -78,9 +79,9 @@
   "scene_poursuite_1": {
     "description": "blabla ",
     "test": "combat",
-    "conso":{
-      "partielle": 4,
-      "echec": 10
+    "effets":{
+      "partielle": {"air": 4},
+      "echec": {"air": 10}
     },
     "suivant": "fin"
   },
