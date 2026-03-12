@@ -1,0 +1,18 @@
+{
+  "butin": [
+    {
+      "nom": "cartouche d'air",
+      "effet": {"air": 10}
+    },
+
+    {
+      "nom": "munitions",
+      "effet": {"munitions": 5}
+    },
+
+    {
+      "nom": "module informatique",
+      "effet": {"score": 1}
+    }
+  ]
+}
