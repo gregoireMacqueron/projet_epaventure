@@ -1,6 +1,6 @@
 {
   "debut": {
-    "description": "\nTu viens de quitter le havre de votre vaisseau de récupération et tu es désormais devant l'un des sas de l'épave qui dérive dans le vide spatial.\n ",
+    "description": "\nTu viens de quitter le havre de ton vaisseau de récupération et tu es désormais devant l'un des sas de l'épave qui dérive dans le vide spatial.\n ",
     "suivant": "scene_couloir_1"
   },
 
