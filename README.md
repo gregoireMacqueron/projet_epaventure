@@ -1,5 +1,15 @@
 # projet_epaventure
 Un jeu vidéo textuel comme TP pédagogique.
+Objectifs pédagogiques : mettre en application et développer mes compétences en programmation.
+Plus particulièrement :
+- langage Python
+- bonnes pratiques de programmation
+- IDE Visual Studio Code 
+- plate-forme de versionning et partage GitHub
+- interpréteur en ligne de commande Git BASH
+- cours de ma formation de testeur logiciel, programme éducatif de Visual Studio Code, et guidage par l'IA générative ChatGPT
+
+
 Un jeu codé en Python par Grégoire Macqueron (2026). Le système de résolution est propulsé par l'Apocalypse (PbtA), d'après le jeu Apocalypse World (2010) de D. Vincent Baker & Meguey Baker.
 
 # Licences
