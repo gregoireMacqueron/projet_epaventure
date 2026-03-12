@@ -1,0 +1,33 @@
+{
+  "obstacles": [
+    {
+      "nom": "drone de sécurité",
+      "type": "combat",
+      "danger": 2,
+      "resultats": {
+        "reussite": "Tu détruis le drone.",
+        "partielle": "Tu détruis le drone mais il endommage ta combinaison.",
+        "echec": "Le drone t'a blessé, tu as mal."
+      },
+      "ressource": {
+        "partielle": {"air": 2},
+        "echec": {"air": 5}
+      }
+    },
+
+    {
+      "nom": "porte verrouillée",
+      "type": "fute",
+      "danger": 1,
+      "resultats": {
+        "reussite": "Tu ouvres la porte.",
+        "partielle": "La porte s'ouvre difficilement.",
+        "echec": "La porte reste bloquée."
+      },
+      "ressource": {
+        "partielle": {"air": 1},
+        "echec": {"air": 2}
+      }
+    }
+  ]
+}
