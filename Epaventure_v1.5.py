@@ -21,25 +21,6 @@ jet = 0
 air = 50
 
 class Epaventure:  #Classe pour manipuler le jeu
-
-    #Données / Dictionnaire de scènes
-    #Partie basculée dans Aventure_scenes.json
-    
-    #Données / Résultats génériques de scènes (mécanique de fallback)
-    resultats_generiques =  {
-    "reussite": {
-        "texte": "Tu réussis parfaitement.",
-        "effets": {}
-    },
-    "partielle":{
-        "texte": "Tu réussis, mais avec une complication",
-        "effets": {"air": 2}
-    },
-    "echec": {
-        "texte": "Tu échoues complètement." ,
-        "effets": {"air": 5}
-    }   
-}
 #==================
 #Fonctions outils
 #==================
@@ -156,6 +137,22 @@ class Epaventure:  #Classe pour manipuler le jeu
             resultat = "echec"
         return total, resultat
 
+    #Données / Résultats génériques de scènes (mécanique de fallback)
+    resultats_generiques =  {
+    "reussite": {
+        "texte": "Tu réussis parfaitement.",
+        "effets": {}
+    },
+    "partielle":{
+        "texte": "Tu réussis, mais avec une complication",
+        "effets": {"air": 2}
+    },
+    "echec": {
+        "texte": "Tu échoues complètement." ,
+        "effets": {"air": 5}
+    }   
+}
+
     #Consommation d'air
     def consommer_air(self,quantite=1):
         self.ressources["air"] = max(0, self.ressources["air"] - quantite)
@@ -227,29 +224,18 @@ class Epaventure:  #Classe pour manipuler le jeu
                 print(cle, valeur)
 
     def afficher_resultats(self, scene, resultat):
+        #texte affiché
         if "resultats" in scene:
             texte = scene["resultats"][resultat]
         else:
             texte = self.resultats_generiques[resultat]["texte"]
         print(texte)
-        if "effets" in scene and resultat in scene["effets"]:
-            self.appliquer_effets(scene["effets"][resultat])
-            #data = self.resultats_generiques[resultat]
-            #texte = data["texte"]
-            #conso = data["conso"]
-
-        print(texte)
-
-        #for ressource, perte in conso.items():
-        #    self.ressources[ressource] = max(0, self.ressources[ressource] - perte)
-        #    print(ressource, "-", perte)
-
-        if "effets" in scene and resultat in scene["effets"]:
-            for ressource, perte in scene["effets"][resultat].items():
-                self.ressources[ressource] = max(0, self.ressources[ressource] - perte)
-
-            print(ressource, "-", perte)
-            print("Réserve restante :", self.ressources[ressource], "%")
+        #Effets spécifiques à la scène
+        if resultat in scene.get("effets", {}):
+            effets = scene["effets"][resultat]
+        else:
+            effets = self.resultats_generiques[resultat]["effets"]
+        self.appliquer_effets(effets)
 
     #Débuter l'aventure 
     def start(self):
@@ -317,7 +303,7 @@ class Epaventure:  #Classe pour manipuler le jeu
             if "choix" in scene:
                 for numero, choix_data in scene["choix"].items():
                     print(numero, ":", choix_data["texte"])
-                choix = input("Choisis 1 ou 2 \n >")
+                choix = input("Choisis 1 ou 2 \n > ")
 
                 #Commande debug : liste des scènes
                 if self.debug and choix == "scenes":
@@ -356,7 +342,9 @@ class Epaventure:  #Classe pour manipuler le jeu
 
                 print("Tu obtiens un résultat de", total)
 
-                self.afficher_resultats(scene, resultat)  
+                self.afficher_resultats(scene, resultat) 
+                #if "effets" in scene and resultat in scene["effets"]:
+                #    self.appliquer_effets(scene["effets"][resultat])
 
             #Gestion automatique de la consommation d'air supplémentaire
             #    if "conso" in scene and resultat in scene["conso"]:
