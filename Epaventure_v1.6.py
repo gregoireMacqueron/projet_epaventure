@@ -1,14 +1,8 @@
-#Minimum viable product du jeu "Epaventure spatiale"
-# Contenu : Description d’ambiance et début du jeu
-# Choix (1 seul)
-# Obstacle (fixe) 1 ou 2
-# Gain (fixe) 1 ou 2
-# Description d’ambiance et début du jeu
-
 #Import des librairies/Libraries import
 import random
 import os
 import json 
+from generation_aventure import generer_aventure, enrichir_aventure
 
 #Variables
 nom_perso = "Alain Connu"
@@ -114,7 +108,7 @@ class Epaventure:  #Classe pour manipuler le jeu
             print("Sauvegarde inextistante")
             return "debut"
         with open(chemin, encoding="utf-8") as f:
-            data = json/load(f)
+            data = json.load(f)
         self.nom_perso = data["nom_perso"]
         self.ressources = data["ressources"]
         self.inventaire = data["inventaire"]
@@ -199,10 +193,44 @@ class Epaventure:  #Classe pour manipuler le jeu
         print("Votre réserve d'air est de", self.ressources["air"], "%.")
         print("\n====================================")
 
-        chemin = os.path.join(os.path.dirname(__file__),"data/Aventure_scenes.json")
-        
-        with open(chemin, "r", encoding="utf-8") as fichier:
-            self.scenes = json.load(fichier) #Transforme le fichier json en dictionnaire de scènes
+        #Gestion mode prégénéré et mode procédural
+        mode_procedural = True
+
+        if mode_procedural:
+            from generation_aventure import generer_aventure
+            #Choix de la taille de l'épave et donc de la durée et difficulté de la mission
+            print("\nQuelle épave as-tu découvert ?")
+            print("1 : Petite épave (exploration rapide)")
+            print("2 : Grande épave")
+            print("3 : Bbéhémoth (énorme et dangereuse)")
+            choix = input("> ")
+            if choix == "1":
+                taille = "petite"
+                print("\nUne petite épave dérive devant ton vaisseau.")
+            elif choix == "2":
+                taille = "grande"
+                print("\nUne vaste épave apparaît sur les scanners.")
+            else:
+                taille = "behemoth"
+                print("\nUn béhémoth spatial dérive dans le vide… un véritable cimetière de métal.")
+
+            self.scenes = generer_aventure(taille)
+            self.taille_epave = taille
+            self.scenes = generer_aventure()
+        else:
+            chemin = os.path.join(os.path.dirname(__file__),"data/Aventure_scenes.json")
+            with open(chemin, "r", encoding="utf-8") as fichier:
+                self.scenes = json.load(fichier) #Transforme le fichier json en dictionnaire de scènes
+            #Ajout enrichissement procédurale
+            enrichir_aventure(self.scenes)
+
+        if self.debug:
+            print("[DEBUG] Scènes générées :", list(self.scenes.keys()))
+#ou ça ???
+            print("[DEBUG] scènes générées :")
+            for s in self.scenes:
+                print(s)
+
 
         self.inventaire = []
 
