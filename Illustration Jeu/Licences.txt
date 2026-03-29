@@ -1,0 +1,6 @@
+Illustration : Spaceship Hub digital sketch par Peterkmiecik, CC BY 3.0 https://creativecommons.org/licenses/by/3.0/deed.fr ; https://www.deviantart.com/peterkmiecik/art/Spaceship-Hub-digital-sketch-793320292
+Logo GNU GPLv3 :  domaine public
+Logo Python : Python Software Foundation, PSF Trademark Usage Policy https://www.python.org/psf/trademarks/
+Logo PbtA : auteur inconnu, peut-être VincentD. Baker & Meguey Baker http://apocalypse-world.com/
+Police Roberto Mocci : par Roberto Mocci, SIL OFL https://www.1001fonts.com/liberation-serif-font.html
+Police Liberation sans (TTF) : par Pravin Satpute, Herbert Duerr et Caius Chance, SIL OFL https://www.1001fonts.com/medodica-font.html

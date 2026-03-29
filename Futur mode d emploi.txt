@@ -1,0 +1,47 @@
+Texte pour le futur mode d'emploi de la version opérationnelle du jeu :
+
+Jeu d'aventure textuel en Python jouable dans le terminal de Windos. 
+Les personnages sont créés directement depuis le terminal, sauvegardables et donc persistants.
+
+Comment jouer
+
+Commencez par télécharger les fichiers source au format ZIP à l'aide de l'option disponible dans l'onglet Code ci-dessus. 
+Une fois cela fait, extrayez tous les fichiers et utilisez le terminal pour accéder au dossier "xxx" sur votre système. 
+Avant de lancer le jeu, installez tous les prérequis à l'aide de la commande suivante : 
+
+$ pip3 install -r requirements.txt
+
+Une fois tout installé, lancer le jeu avce la commande : 
+
+$ python3 xxxxxx.py
+
+==
+Ibnstaller python :
+https://www.python.org/downloads/
+Download Python install manager
+
+https://learn.microsoft.com/fr-fr/windows/dev-environment/python
+
+Lancer le terminal de commande de Windows:
+Ouvrir le menu Démarrer ou la Recherche.
+Saisir « terminal » dans la barre de recherche.
+Choisir "Terminal Windows".
+
+ou comme https://github.com/ajaykareer/Adventure_Game
+🛠️ Requirements
+
+To play the game, you’ll need:
+
+    Python 3.x installed on your system.
+
+⚙️ How to Run
+
+    Clone or download the project to your local machine.
+
+    git clone https://github.com/ajaykareer/Adventure_Game.git
+
+    Navigate to the project directory. cd Adventure-Game
+
+    Run the Python script. python adventure_game.py
+
+    Follow the on-screen instructions to play the game.
