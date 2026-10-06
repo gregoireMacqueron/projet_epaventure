@@ -46,4 +46,4 @@ Aucune garantie n'est donnée. Il se peut que la licence ne vous donne pas toute
 | v1.3.2 | Ajout fallback, factorisation des scènes dans un fichier json, etc. | [Epaventure_v1.3.2.py](https://github.com/gregoireMacqueron/projet_epaventure/blob/v1.3.2/Epaventure_v1.3.2.py) | 4283f91 |
 | v1.4 | Ajout consommation air, gestion butin/inventaire | [Epaventure_v1.4.py](https://github.com/gregoireMacqueron/projet_epaventure/blob/v1.4/Epaventure_v1.4.py) | 8ab9975 |
 | v1.5 | Amélioration cartographie, etc. | [Epaventure_v1.5.py](https://github.com/gregoireMacqueron/projet_epaventure/blob/v1.5/Epaventure_v1.5.py) | e70a9d7 |
-| v1.6 | Passage à une génération procédurale (épave, obstacles, butin) | `epaventure.py` (actuel) | 623e956 |
+| v1.6 | Passage à une génération procédurale (épave, obstacles, butin) | [epaventure.py](https://github.com/gregoireMacqueron/projet_epaventure/blob/v1.6/Epaventure_v1.6.py) | 623e956 |
