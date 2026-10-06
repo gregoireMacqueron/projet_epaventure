@@ -21,18 +21,29 @@ Ou
 Creative Commons CC BY-SA 4.0, voir https://creativecommons.org/licenses/by-sa/4.0/deed.fr
 Vous êtes autorisé à :
 
-    Partager — copier, distribuer et communiquer le matériel par tous moyens et sous tous formats pour toute utilisation, y compris commerciale.
-    Adapter — remixer, transformer et créer à partir du matériel pour toute utilisation, y compris commerciale.
-    L'Offrant ne peut retirer les autorisations concédées par la licence tant que vous appliquez les termes de cette licence.
+Partager — copier, distribuer et communiquer le matériel par tous moyens et sous tous formats pour toute utilisation, y compris commerciale.
+Adapter — remixer, transformer et créer à partir du matériel pour toute utilisation, y compris commerciale.
+L'Offrant ne peut retirer les autorisations concédées par la licence tant que vous appliquez les termes de cette licence.
 
 Selon les conditions suivantes :
 
-    Attribution — Vous devez créditer l'Œuvre, intégrer un lien vers la licence et indiquer si des modifications ont été effectuées à l'Oeuvre. Vous devez indiquer ces informations par tous les moyens raisonnables, sans toutefois suggérer que l'Offrant vous soutient ou soutient la façon dont vous avez utilisé son Oeuvre.
-    Partage dans les Mêmes Conditions — Dans le cas où vous effectuez un remix, que vous transformez, ou créez à partir du matériel composant l'Oeuvre originale, vous devez diffuser l'Oeuvre modifiée dans les même conditions, c'est à dire avec la même licence avec laquelle l'Oeuvre originale a été diffusée.
-    Pas de restrictions complémentaires — Vous n'êtes pas autorisé à appliquer des conditions légales ou des mesures techniques qui restreindraient légalement autrui à utiliser l'Oeuvre dans les conditions décrites par la licence.
+Attribution — Vous devez créditer l'Œuvre, intégrer un lien vers la licence et indiquer si des modifications ont été effectuées à l'Oeuvre. Vous devez indiquer ces informations par tous les moyens raisonnables, sans toutefois suggérer que l'Offrant vous soutient ou soutient la façon dont vous avez utilisé son Oeuvre.
+Partage dans les Mêmes Conditions — Dans le cas où vous effectuez un remix, que vous transformez, ou créez à partir du matériel composant l'Oeuvre originale, vous devez diffuser l'Oeuvre modifiée dans les même conditions, c'est à dire avec la même licence avec laquelle l'Oeuvre originale a été diffusée.
+Pas de restrictions complémentaires — Vous n'êtes pas autorisé à appliquer des conditions légales ou des mesures techniques qui restreindraient légalement autrui à utiliser l'Oeuvre dans les conditions décrites par la licence.
 
 Notes:
 
 Vous n'êtes pas dans l'obligation de respecter la licence pour les éléments ou matériel appartenant au domaine public ou dans le cas où l'utilisation que vous souhaitez faire est couverte par une exception.
 
 Aucune garantie n'est donnée. Il se peut que la licence ne vous donne pas toutes les permissions nécessaires pour votre utilisation. Par exemple, certains droits comme les droits moraux, le droit des données personnelles et le droit à l'image sont susceptibles de limiter votre utilisation. 
+
+# Evolution du projet
+  Version | Contenu | Voir le code | sha |
+|---------|---------|--------------|-------|
+| MVP  | Première version jouable | [Epaventure_v1_MVP.py](https://github.com/gregoireMacqueron/projet_epaventure/blob/v1.0-mvp/Epaventure_v1_MVP.py) | 5a6a619 |
+| v1.1 | Création de personnage, nettoyage de l'écran en début de partie, ajout des scores etc. | [Epaventure_v1.1.py](https://github.com/gregoireMacqueron/projet_epaventure/blob/v1.1/Epaventure_v1.1.py) | ed0c410 |
+| v1.2 | Ajout double licence dans le code (affichage à la fin), factorisation de la fonction du moteur de résolution | [Epaventure_v1.2.py](https://github.com/gregoireMacqueron/projet_epaventure/blob/v1.2/Epaventure_v1.2.py) | 8aabf71 |
+| v1.3.2 | Ajout fallback, factorisation des scènes dans un fichier json, etc. | [Epaventure_v1.3.2.py](https://github.com/gregoireMacqueron/projet_epaventure/blob/v1.3.2/Epaventure_v1.3.2.py) | 4283f91 |
+| v1.4 | Ajout consommation air, gestion butin/inventaire | [Epaventure_v1.4.py](https://github.com/gregoireMacqueron/projet_epaventure/blob/v1.4/Epaventure_v1.4.py) | 8ab9975 |
+| v1.5 | Amélioration cartographie, etc. | [Epaventure_v1.5.py](https://github.com/gregoireMacqueron/projet_epaventure/blob/v1.5/Epaventure_v1.5.py) | e70a9d7 |
+| v1.6 | Passage à une génération procédurale (épave, obstacles, butin) | `epaventure.py` (actuel) | 623e956 |
