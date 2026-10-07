@@ -2,12 +2,36 @@
 import random
 
 #Ordre de genèse conseillé:
-##génération des salles
-##branches
-##obstacles
-##butin
-##sas
-##équilibrage danger
+##génération des salles : FAIT via generer_graphe
+##branches : FAIT via intégration à generer_graphe
+##obstacles TO DO
+##butin TO DO
+##sas FAIT via ajouter_sas
+#Scènes & évènements : conversion en scènes JSON
+    
+#Habillage : générer le type des salles (description & ambiance)
+TYPES_SALLES = [
+    "couloir",
+    "cabine",
+    "soute",
+    "atelier",
+    "infirmerie"
+]
+
+SALLES_RARES = [
+    "passerelle",
+    "coffre",
+    "salle_reacteur",
+    "salle_machines"
+]
+
+DESCRIPTIONS = {
+    "couloir": "Un couloir étroit envahi par les câbles.",
+    "cabine": "Une cabine abandonnée flotte dans le silence.",
+    "soute": "La soute est remplie de caisses dérivantes.",
+    "atelier": "Un atelier technique aux machines éventrées.",
+    "infirmerie": "Une infirmerie dont les instruments flottent."
+}
 
 #Structure : générer le graphe des salles
 def generer_graphe(nb_salles, branches):
@@ -44,76 +68,22 @@ def generer_aventure(taille="grande"):
         nb_salles = random.randint(22, 30)
         branches = 0.6
         nb_sas = random.randint(3, 4)
-
+    else:
+        raise ValueError(f"Taille inconnue : {taille!r} (attendu : petite, grande, behemoth)")
+    
     graphe = generer_graphe(nb_salles, branches)
-
     scenes = generer_scenes(graphe)
-
     ajouter_sas(scenes, nb_sas)
-
     return scenes
 
-    #Habillage : générer le type des salles (description & ambiance)
-TYPES_SALLES = [
-    "couloir",
-    "cabine",
-    "soute",
-    "atelier",
-    "infirmerie"
-]
-
-SALLES_RARES = [
-    "passerelle",
-    "coffre",
-    "salle_reacteur",
-    "salle_machines"
-]
-
-DESCRIPTIONS = {
-    "couloir": "Un couloir étroit envahi par les câbles.",
-    "cabine": "Une cabine abandonnée flotte dans le silence.",
-    "soute": "La soute est remplie de caisses dérivantes.",
-    "atelier": "Un atelier technique aux machines éventrées.",
-    "infirmerie": "Une infirmerie dont les instruments flottent."
-}
-
-    #Ajouter des obstacles
-
-    #Ajouter du butin
-
-    #Scènes & évènements : conversion en scènes JSON
-
-
-    #########################ancienne version
+def generer_scenes(graphe):
+    """Stub : version minimale pour les tests, à compléter."""
     scenes = {}
-    scenes["debut"] = {
-        "description":"Tu entres dans l'épave.",
-        "suivant": "salle_1"
-    }
-    for i in range(1, nb_salles):
-        scenes[f"salle_{i}"] = {
-            "description":"Une salle abandonnée.",
-            "suivant": f"salle_{i+1}"
+    for nom in graphe:
+        scenes[nom] = {
+            "description": "Une salle de l'épave, parmi tant d'autres.",  #description générique
+            "suivants": graphe[nom]
         }
-    scenes[f"salle_{nb_salles}"]= {
-        "description":"Un sas vers l'extérieur.",
-        "suivant": "fin"        
-    }
-
-   # branche aléatoire
-    if random.random() < 0.4:
-
-        scenes["salle_3"] = {
-            "description": "Une salle technique.",
-            "choix": {
-                "1": {"texte": "Couloir principal", "suivant": "salle_4"},
-                "2": {"texte": "Conduit secondaire", "suivant": "salle_6"}
-            }
-        }
-        
-    scenes["fin"] = {
-        "description": "Tu quittes l'épave."
-    }
     return scenes
 
 def enrichir_aventure(scenes):
@@ -123,9 +93,6 @@ def enrichir_aventure(scenes):
         if random.random() < 0.2:
             scene["type"] = "sas"
         if random.random() < 0.4:
-            scene.setdefault("effects", {})
+            scene.setdefault("effets", {})
             scene["effets"]["reussite"] = {"loot": "ferraille"}
 
-enrichir_aventure()
-generer_obstacles()
-generer_butin()

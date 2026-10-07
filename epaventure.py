@@ -73,9 +73,25 @@ class Epaventure:  #Classe pour manipuler le jeu
                 max_dist = d
         return max_dist
 
+    #Système de vérification de la sélection des slots de sauvegarde
+    NB_SLOTS = 3
+    
+    def demander_slot(question):
+        """Demande un numéro de slot, redemande tant que la valeur est invalide"""
+        while True:
+            reponse = input(question)
+            try:
+                slot = int(reponse)
+            except ValueError:
+                print("Veuillez entrer un nombre entier.")
+                continue
+            if 1 <= slot <= NB_SLOTS:
+                return slot
+            print(f"Veuillez entrer un nombre entre 1 et {NB_SLOTS}.")
+
     #Système de sauvegarde par slot (sauvegarder, afficher, charger)
     def sauvegarder(self, scene_actuelle):
-        slot = input("Choisir un slot de sauvegarde (1-3) :")
+        slot = demander_slot("Choisir un slot de sauvegarde (1-{NB_SLOTS}) :")
         chemin = f"sauvegardes/save_{slot}.json"
         sauvegarde = {
             "nom_perso": self.nom_perso,
@@ -89,9 +105,9 @@ class Epaventure:  #Classe pour manipuler le jeu
             json.dump(sauvegarde, f, indent=4)
         print("Sauvegarde effectuée dans le slot", slot)
 
-    def afficher_sauvegardes(sef):
+    def afficher_sauvegardes(self):
         print("\nSauvegardes disponibles :\n")
-        for i in range (1,4):
+        for i in range (1, self.NB_SLOTS + 1):
             chemin = f"sauvegardes/save_{i}.json"
             if os.path.exists(chemin):
                 with open(chemin, encoding="utf-8") as f:
@@ -105,7 +121,7 @@ class Epaventure:  #Classe pour manipuler le jeu
         slot = input("\nQuel slot charger ? ")
         chemin = f"sauvegardes/save_{slot}.json"
         if not os.path.exists(chemin):
-            print("Sauvegarde inextistante")
+            print("Sauvegarde inexistante")
             return "debut"
         with open(chemin, encoding="utf-8") as f:
             data = json.load(f)
@@ -116,6 +132,20 @@ class Epaventure:  #Classe pour manipuler le jeu
         self.fute = data["fute"]
         print("Sauvegarde chargée.")
         return data["scene"]
+
+    def effacer_sauvegarde(self):
+        self.effacer_sauvegarde()
+        slot = input("\nQuel slot effacer ? ")
+        chemin = f"sauvegardes/save_{slot}.json"
+        if not os.path.exists(chemin):
+            print("Sauvegarde inexistante")
+            return 
+        confirmation = input(f"Effacer la sauvegarde du slot {slot} ? (o/n) : ")
+        if confirmation.lower() == "o":
+            os.remove(chemin)
+            print("Sauvegarde effacée")
+        else:
+            print("Suppression annulée.")
 #==================
 #Moteur de jeu
 #==================
